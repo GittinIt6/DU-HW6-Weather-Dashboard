@@ -4,9 +4,124 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"
+    />
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+
+    <!-- <main> -->
+        <div class="container-fluid">
+            <div class="row" id="test1">
+                <div class="col-4">
+                    <div class="row pl-2 search-bar" id="search-title"><h2>Search for a City:</h2></div> 
+                    <div class="row search-bar"><input id="city-search" type="text"></div>
+                    <div class="row pl-2 search-bar" id="search-bar-bottom"><input id="search" type="button" value="Search"></div>
+                    <ul class="history">
+                        <li class="history-item" id="histItem1">Austin</li>
+                        <li class="history-item" id="histItem2"></li>
+                        <li class="history-item" id="histItem3"></li>
+                        <li class="history-item" id="histItem4"></li>
+                        <li class="history-item" id="histItem5"></li>
+                        <li class="history-item" id="histItem6"></li>
+                        <li class="history-item" id="histItem7"></li>
+                        <li class="history-item" id="histItem8"></li>
+                    </ul>
+                </div>
+                <div class="col-8" id="test3">
+                    <div class="container current-data">
+                        <div class="row"><h2>City (DATE) emoji</h2></div> 
+                        <div class="row"><h4>Temp:</h4></div>
+                        <div class="row"><h4>Wind:</h4></div>
+                        <div class="row"><h4>Humidity:</h4></div> 
+                        <div class="row"><h4>UV Index:</h4></div>
+                    </div> 
+                    <div class="row m-2"><h3>5-Day Forecast:</h3></div>
+                    <div class="container">
+                        <div class="card-group">
+                            <!-- <div class="col"> -->
+                                <div class="card text-white mb-5">
+                                    <div class="card-header">DATE</div>
+                                    <div class="card-body p-1">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item fas fa-cloud-sun fa-3x"></li>
+                                            <li class="list-group-item">Temp:</li>
+                                            <li class="list-group-item">Wind:</li>
+                                            <li class="list-group-item">Humidity:</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            <!-- </div> -->
+                            <!-- <div class="col"> -->
+                                <div class="card text-white mb-5 ml-1">
+                                    <div class="card-header">DATE</div>
+                                    <div class="card-body p-1">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item fas fa-sun fa-3x"></li>
+                                            <li class="list-group-item">Temp:</li>
+                                            <li class="list-group-item">Wind:</li>
+                                            <li class="list-group-item">Humidity:</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            <!-- </div> -->
+                            <!-- <div class="col"> -->
+                                <div class="card text-white mb-5 ml-1">
+                                    <div class="card-header">DATE</div>
+                                    <div class="card-body p-1">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item fas fa-poo-storm fa-3x"></li>
+                                            <li class="list-group-item">Temp:</li>
+                                            <li class="list-group-item">Wind:</li>
+                                            <li class="list-group-item">Humidity:</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            <!-- </div> -->
+                            <!-- <div class="col"> -->
+                                <div class="card text-white mb-5 ml-1">
+                                    <div class="card-header">DATE</div>
+                                    <div class="card-body p-1">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item fas fa-wind fa-3x"></li>
+                                            <li class="list-group-item">Temp:</li>
+                                            <li class="list-group-item">Wind:</li>
+                                            <li class="list-group-item">Humidity:</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            <!-- </div> -->
+                            <!-- <div class="col"> -->
+                                <div class="card text-white mb-5 ml-1">
+                                    <div class="card-header">DATE</div>
+                                    <div class="card-body p-1">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item fas fa-cloud-rain fa-3x"></li>
+                                            <li class="list-group-item">Temp:</li>
+                                            <li class="list-group-item">Wind:</li>
+                                            <li class="list-group-item">Humidity:</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            <!-- </div> -->
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    <!-- </main> -->
     
+
+    <script src="./assets/scripts/script.js"></script>
 </body>
 </html>

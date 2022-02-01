@@ -1,3 +1,104 @@
 * {
-    font-family: 'Open Sans', sans-serif;
+    font-family: Arial, Helvetica, sans-serif
 }
+
+header{
+    background: linear-gradient(90deg, rgba(86,155,255,1) 0%, rgba(12,12,156,1) 35%, rgba(39,34,116,1) 100%);
+    padding: 15px 0px;
+    color: white;
+    font-weight:bolder;
+    text-align: center;
+    width: 100%;
+}
+
+body{
+    margin:auto;
+    /* width: 80%; */
+}
+
+.container-fluid{
+    max-width: 1600px;
+}
+
+#city-search{
+    min-width: 95%;
+    margin: auto;
+    font-size: 175%;
+}
+
+#search{
+    padding: 5px;
+    margin: 10px 4px;
+    border-radius: 5px;
+    background-color: lightskyblue;
+    font-size: 125%;
+    max-width: 250px;
+    width: 90%;
+    min-width: 100px;
+    text-align: center; 
+}
+#search:hover{
+    background-color: #447AE5;
+}
+
+.history{
+    padding:0px;
+}
+
+.history-item{
+    list-style-type: none;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: lightgray;
+    font-size: 125%;
+    max-width: 250px;
+    min-width: 100px;
+    text-align: center;
+    min-height: 35px;
+}
+.history-item:hover{
+    background-color: grey;
+    /* border: solid 1px black; */
+    cursor: pointer;
+}
+
+
+.card{
+    background-color: #2D3E50;
+    /* padding-left: 2px; */
+    border-radius: 0px;
+    max-width: 12rem;
+    min-width: 7rem;
+}
+
+.list-group-item{
+    background-color: #2D3E50;
+    padding-left: 2px;
+    border:none;
+    /* border-radius: 0px; */
+}
+
+.current-data{
+    border: solid 2px black;
+    width: 98%;
+    /* margin: 5px; */
+}
+
+#test1{
+    /* background-color: thistle; */
+}
+
+.search-bar{
+    margin:0px;
+    padding:0px;
+    /* background-color: tomato; */
+}
+#search-bar-bottom{
+    border-bottom: solid gray 2px;
+}
+
+#test3{
+    /* background-color: turquoise; */
+}
+
