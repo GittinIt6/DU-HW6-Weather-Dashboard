@@ -18,7 +18,9 @@ let weatherItems = {temp:125.01, wind:45.25, humid:56};
 let todayDate = moment().format('L');
 let historyCounter = localStorage.length;
 
-refreshData();
+refreshData();//initial data pull with default city
+
+//show and populate history buttons if history items are stored
 refreshHistButtons();
 
 for (let i = 0; i < localStorage.length; i++) {
@@ -28,27 +30,19 @@ for (let i = 0; i < localStorage.length; i++) {
 
 currentDateEl.textContent = todayDate;//set today's date for current city area
 currentCityEl.textContent = cityInput;//default city
-// currentEmojiEl.classList.add(emojis.cloudSun);//TESTING
-// currentTempEl.textContent = "125.01";//TESTING
-// currentWindEl.textContent = "45.25";//TESTING
-// currentHumidEl.textContent = "56";//TESTING
-// currentUVIEl.textContent = "0.45";//TESTING
-
 
 function history(){
-console.log(`history counter is ${historyCounter}`);//DELETE LATER
-let historyItems = [];
-historyCounter = localStorage.length;
-// let historyDuplicate = false;
-//create array of local storage items
-for (let index = 0; index < localStorage.length; index++) {
-    historyItems.push(localStorage[index]);
-}
-
+    // console.log(`history counter is ${historyCounter}`);//DELETE LATER
+    let historyItems = [];
+    historyCounter = localStorage.length;
+    //create array of local storage items
+    for (let index = 0; index < localStorage.length; index++) {
+        historyItems.push(localStorage[index]);
+    }
+        
     if (historyItems.includes(cityInput)){
-        // historyDuplicate = true
-        console.log(`history Items array is ${historyItems}`);
-        console.log(`history duplicate is true`);//DELETE LATER
+            //console.log(`history Items array is ${historyItems}`);//DELETE LATER
+            //console.log(`history duplicate is true`);//DELETE LATER
         return;
     }
     else{
@@ -59,11 +53,10 @@ for (let index = 0; index < localStorage.length; index++) {
                 document.getElementById(`histItem${historyCounter}`).textContent = localStorage[historyCounter];
             };
             historyCounter += 1;
-            console.log(`history counter is ${historyCounter}`);//DELETE LATER
+                //console.log(`history counter is ${historyCounter}`);//DELETE LATER
             return;
         }
         else{
-            // historyCounter = 0;
             if (historyCounter > 7){
                 historyCounter = 0;
             }
@@ -75,30 +68,24 @@ for (let index = 0; index < localStorage.length; index++) {
                 document.getElementById(`histItem${historyCounter}`).style.display = "block"; 
                 document.getElementById(`histItem${historyCounter}`).textContent = localStorage[historyCounter];
             };
-            console.log(`history counter is ${historyCounter}`);//DELETE LATER
+                //console.log(`history counter is ${historyCounter}`);//DELETE LATER
             return;
         };
     };
-
-
-// let historyDuplicate = historyItems.includes(cityInput);
-// console.log(`history duplicate is ${historyDuplicate}`);
-
-// for (let index = 0; index < array.length; index++) {
-//     if historyItems.include
-    
-// }
-
 }
 
 function refreshData(){
-    if (userInput.value !== ""){cityInput = userInput.value; history()};
+    //check for blank input
+    if (userInput.value !== ""){
+        cityInput = userInput.value;
+        history();
+    };
     let queryGeoCode = `http://api.openweathermap.org/geo/1.0/direct?q=${cityInput}&appid=${APIKey}`;
     fetch(queryGeoCode)
     .then(response => response.json())
         .then(data => {
             let cityData = data;
-            console.log(cityData);
+            //console.log(cityData);//DELETE LATER
             cityInput = cityData[0].name;
             currentCityEl.textContent = cityInput;
             let queryWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityData[0].lat}&lon=${cityData[0].lon}&units=imperial&appid=${APIKey}`;
@@ -106,31 +93,27 @@ function refreshData(){
             .then(response => response.json())
                 .then(data => {
                     weatherData = data;
-                    console.log(weatherData);
-                    // weatherItems.temp = weatherData.current.temp;
-                    // weatherItems.wind = weatherData.current.wind_speed;
-                    // weatherItems.humid = weatherData.current.humidity;
+                    //console.log(weatherData);//DELETE LATER
+                    //set current selected city data
                     currentTempEl.textContent = weatherData.current.temp;
                     currentWindEl.textContent = weatherData.current.wind_speed;
                     currentHumidEl.textContent = weatherData.current.humidity;
                     currentUVIEl.textContent = weatherData.current.uvi;
-                    console.log(weatherData.current.weather[0].icon);
+                    //console.log(weatherData.current.weather[0].icon);//DELETE LATER
                     emojis.Icon = weatherData.current.weather[0].icon;
                     currentEmojiEl.innerHTML = `<img src="http://openweathermap.org/img/wn/${emojis.Icon}@2x.png" alt="test"  width="70" height="70">`
                     refreshCards();
                 });    
         });
-    userInput.value = "";
-    // refreshHistButtons();
+    userInput.value = "";//clear text area
     return;
 }
 
-function refreshCards(){
 //set info for 5-day forecast cards:
+function refreshCards(){
     for (let i = 1; i < (cardsEl.length + 1); i++) {
         let newDate = moment().add(i, 'd').format('L');
         document.getElementById(`card-${cardItems[0]}${i}`).textContent = newDate;
-        // document.getElementById(`card-${cardItems[1]}${i}`).classList.add(emojis.Snow);
         emojis.Icon = weatherData.daily[i].weather[0].icon;
         document.getElementById(`card-${cardItems[1]}${i}`).innerHTML = `<img src="http://openweathermap.org/img/wn/${emojis.Icon}@2x.png" alt="test" width="80" height="80">`
         weatherItems.temp = weatherData.daily[i].temp.max;
@@ -142,12 +125,13 @@ function refreshCards(){
     };
 };
 
+//event listener function for history buttons
 function refreshHistButtons(){
     for (let idx = 0; idx < histBtnsEl.length; idx++) {
         document.getElementById(`histItem${idx}`).addEventListener ("click", function (){
-            console.log(`refreshHistButton ${this.textContent}`);
+            //console.log(`refreshHistButton ${this.textContent}`);//DELETE LATER
             userInput.value = "";
-            cityInput = this.textContent;
+            cityInput = this.textContent; //set location input variable to button value
             refreshData();
         });
     }

@@ -13,7 +13,6 @@ header{
 
 body{
     margin:auto;
-    /* width: 80%; */
 }
 
 .container-fluid{
@@ -61,14 +60,12 @@ body{
 }
 .history-item:hover{
     background-color: grey;
-    /* border: solid 1px black; */
     cursor: pointer;
 }
 
 
 .card{
     background-color: #6f7780;
-    /* padding-left: 2px; */
     border-radius: 0px;
     max-width: 12rem;
     min-width: 7rem;
@@ -78,29 +75,18 @@ body{
     background-color: #6f7780;
     padding-left: 2px;
     border:none;
-    /* border-radius: 0px; */
 }
 
 .current-data{
     border: solid 2px black;
     width: 98%;
-    /* margin: 5px; */
-}
-
-#test1{
-    /* background-color: thistle; */
 }
 
 .search-bar{
     margin:0px;
     padding:0px;
-    /* background-color: tomato; */
 }
 #search-bar-bottom{
     border-bottom: solid gray 2px;
-}
-
-#test3{
-    /* background-color: turquoise; */
 }
 
