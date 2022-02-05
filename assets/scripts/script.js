@@ -82,7 +82,7 @@ function refreshData(){
     };
     let queryGeoCode = `http://api.openweathermap.org/geo/1.0/direct?q=${cityInput}&appid=${APIKey}`;
     fetch(queryGeoCode)
-    .then(response => response.json())
+        .then(response => response.json())
         .then(data => {
             let cityData = data;
             //console.log(cityData);//DELETE LATER
@@ -99,7 +99,16 @@ function refreshData(){
                     currentWindEl.textContent = weatherData.current.wind_speed;
                     currentHumidEl.textContent = weatherData.current.humidity;
                     currentUVIEl.textContent = weatherData.current.uvi;
-                    //console.log(weatherData.current.weather[0].icon);//DELETE LATER
+                    if(currentUVIEl.textContent <= 2){
+                        currentUVIEl.className = ("bg-green");
+                    }
+                    else if(currentUVIEl.textContent <= 5){
+                        currentUVIEl.className = ("bg-yellow");
+                    }
+                    else{
+                        currentUVIEl.className = ("bg-red");
+                    };
+                     //console.log(weatherData.current.weather[0].icon);//DELETE LATER
                     emojis.Icon = weatherData.current.weather[0].icon;
                     currentEmojiEl.innerHTML = `<img src="http://openweathermap.org/img/wn/${emojis.Icon}@2x.png" alt="test"  width="70" height="70">`
                     refreshCards();
