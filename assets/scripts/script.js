@@ -32,7 +32,6 @@ currentDateEl.textContent = todayDate;//set today's date for current city area
 currentCityEl.textContent = cityInput;//default city
 
 function history(){
-    // console.log(`history counter is ${historyCounter}`);//DELETE LATER
     let historyItems = [];
     historyCounter = localStorage.length;
     //create array of local storage items
@@ -41,8 +40,6 @@ function history(){
     }
         
     if (historyItems.includes(cityInput)){
-            //console.log(`history Items array is ${historyItems}`);//DELETE LATER
-            //console.log(`history duplicate is true`);//DELETE LATER
         return;
     }
     else{
@@ -53,7 +50,6 @@ function history(){
                 document.getElementById(`histItem${historyCounter}`).textContent = localStorage[historyCounter];
             };
             historyCounter += 1;
-                //console.log(`history counter is ${historyCounter}`);//DELETE LATER
             return;
         }
         else{
@@ -68,7 +64,6 @@ function history(){
                 document.getElementById(`histItem${historyCounter}`).style.display = "block"; 
                 document.getElementById(`histItem${historyCounter}`).textContent = localStorage[historyCounter];
             };
-                //console.log(`history counter is ${historyCounter}`);//DELETE LATER
             return;
         };
     };
@@ -85,7 +80,6 @@ function refreshData(){
         .then(response => response.json())
         .then(data => {
             let cityData = data;
-            //console.log(cityData);//DELETE LATER
             cityInput = cityData[0].name;
             currentCityEl.textContent = cityInput;
             let queryWeather = `https://api.openweathermap.org/data/2.5/onecall?lat=${cityData[0].lat}&lon=${cityData[0].lon}&units=imperial&appid=${APIKey}`;
@@ -93,7 +87,6 @@ function refreshData(){
             .then(response => response.json())
                 .then(data => {
                     weatherData = data;
-                    //console.log(weatherData);//DELETE LATER
                     //set current selected city data
                     currentTempEl.textContent = weatherData.current.temp;
                     currentWindEl.textContent = weatherData.current.wind_speed;
@@ -108,9 +101,8 @@ function refreshData(){
                     else{
                         currentUVIEl.className = ("bg-red");
                     };
-                     //console.log(weatherData.current.weather[0].icon);//DELETE LATER
                     emojis.Icon = weatherData.current.weather[0].icon;
-                    currentEmojiEl.innerHTML = `<img src="http://openweathermap.org/img/wn/${emojis.Icon}@2x.png" alt="test"  width="70" height="70">`
+                    currentEmojiEl.innerHTML = `<img src="http://openweathermap.org/img/wn/${emojis.Icon}@2x.png" alt="weather cloud sun or rain emoji"  width="70" height="70">`
                     refreshCards();
                 });    
         });
@@ -138,7 +130,6 @@ function refreshCards(){
 function refreshHistButtons(){
     for (let idx = 0; idx < histBtnsEl.length; idx++) {
         document.getElementById(`histItem${idx}`).addEventListener ("click", function (){
-            //console.log(`refreshHistButton ${this.textContent}`);//DELETE LATER
             userInput.value = "";
             cityInput = this.textContent; //set location input variable to button value
             refreshData();
